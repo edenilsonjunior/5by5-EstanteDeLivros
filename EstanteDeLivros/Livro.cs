@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstanteDeLivros
+﻿namespace EstanteDeLivros
 {
     public class Livro
     {
@@ -63,22 +57,21 @@ namespace EstanteDeLivros
 
         public void ImprimirAutores()
         {
-            if (this.qntAutores == 1)
+            switch (this.qntAutores)
             {
-                Console.WriteLine("Nao existe autores cadastrados para esse livro!");
+                case 0:
+                    Console.WriteLine("Nao existe autores cadastrados para esse livro!");
+                    break;
+                case 1:
+                    Console.WriteLine("Autor: " + autores[0]);
+                    break;
+                default:
+                    for (int i = 0; i < qntAutores; i++)
+                    {
+                        Console.WriteLine($"Autor {i + 1}: {autores[i]}");
+                    }
+                    break;
             }
-            else if (this.qntAutores == 1)
-            {
-                Console.WriteLine("Autor: " + autores[0]);
-            }
-            else
-            {
-                for (int i = 0; i < qntAutores; i++)
-                {
-                    Console.WriteLine($"Autor {i + 1}: {autores[i]}");
-                }
-            }
-
         }
 
         public void ImprimirLivro()

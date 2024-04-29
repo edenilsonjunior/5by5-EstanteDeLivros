@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstanteDeLivros
+﻿namespace EstanteDeLivros
 {
     public class Estante
     {
@@ -13,7 +7,6 @@ namespace EstanteDeLivros
 
         public Estante()
         {
-
             this.livros = new Livro[10];
             this.qntLivros = 0;
         }
@@ -21,13 +14,9 @@ namespace EstanteDeLivros
         public void AdicionarLivro(Livro livro)
         {
             if (qntLivros == 10)
-            {
                 Console.WriteLine("Estante cheia!!!");
-            }
             else
-            {
                 this.livros[qntLivros++] = livro;
-            }
         }
 
         public void ImprimirLivros()
@@ -38,14 +27,12 @@ namespace EstanteDeLivros
             }
             else
             {
-
                 for (int i = 0; i < qntLivros; i++)
                 {
                     Console.WriteLine($"Livro {i + 1}: ");
                     livros[i].ImprimirLivro();
                     Console.WriteLine("=============================");
                 }
-
             }
         }
 

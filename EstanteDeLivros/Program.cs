@@ -1,12 +1,9 @@
-﻿using System.ComponentModel.Design;
-
-namespace EstanteDeLivros
+﻿namespace EstanteDeLivros
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-
             Estante estante = new Estante();
             int escolha;
 
@@ -68,7 +65,6 @@ namespace EstanteDeLivros
 
                 return option;
             }
-
 
             Livro CriarLivro()
             {
