@@ -58,6 +58,12 @@
             this.titulo = titulo;
         }
 
+        public void SetAutores(string[] autores)
+        {
+            this.autores = autores;
+            this.qntAutores = autores.Length;
+        }
+
         public void SetDataLancamento(DateOnly date)
         {
             this.dataLancamento = date;

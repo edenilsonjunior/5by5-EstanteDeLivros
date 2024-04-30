@@ -19,6 +19,50 @@
                 this.livros[qntLivros++] = livro;
         }
 
+        public void RemoverLivro(int indice)
+        {
+            if (qntLivros == 0)
+            {
+                Console.WriteLine("Estante vazia!!!!");
+                return;
+            }
+
+            if (indice < 0 || indice >= qntLivros)
+            {
+                Console.WriteLine("Indice Invalido!");
+            }
+            else
+            {
+                int i = indice;
+                while (i < qntLivros - 1)
+                {
+                    livros[i] = livros[i + 1];
+                    i++;
+                }
+                livros[qntLivros - 1] = null;
+                qntLivros--;
+                Console.WriteLine("Livro removido com sucesso!");
+            }
+        }
+
+        public Livro GetLivroPorIndice(int indice)
+        {
+            if (qntLivros == 0)
+            {
+                Console.WriteLine("Estante vazia!!!!");
+            }
+
+            if (indice < 0 || indice >= qntLivros)
+            {
+                Console.WriteLine("Indice Invalido!");
+            }
+            else
+            {
+                return livros[indice];
+            }
+            return null;
+        }
+
         public void ImprimirLivros()
         {
             if (qntLivros == 0)
