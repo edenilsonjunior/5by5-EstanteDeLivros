@@ -9,8 +9,6 @@
 
             do
             {
-                Console.Clear();
-                Console.WriteLine("=====Estante de livros=====");
                 escolha = Menu();
                 ImprimirLinha();
 
@@ -23,23 +21,21 @@
                         estante.ImprimirLivros();
                         break;
                     case 3:
-                        Console.Write("Digite o indice do livro: ");
-                        estante.ImprimirLivroPorIndice(int.Parse(Console.ReadLine()));
+                        estante.ImprimirLivroPorIndice(int.Parse(LerString("Digite o indice do livro: ")));
                         break;
                     case 4:
                         Console.WriteLine("Saindo....");
+                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Escolha invalida");
                         break;
                 }
 
-                if (escolha != 4)
-                {
-                    Console.Write("\nPressione qualquer tecla para voltar ao menu...");
-                    Console.ReadKey();
-                }
-
+                ImprimirLinha();
+                Console.WriteLine("Digite qualquer tecla para voltar ao menu...");
+                Console.ReadKey();
+            
             } while (escolha != 4);
 
             /*-----Funcoes-----*/
@@ -49,25 +45,29 @@
              */
             int Menu()
             {
-                int option;
-                do
-                {
-                    ImprimirLinha();
-                    Console.WriteLine("Escolha uma opcao");
-                    Console.WriteLine("1- Adicionar Livro");
-                    Console.WriteLine("2- Imprimir todos os livros");
-                    Console.WriteLine("3- Imprimir um livro especifico");
-                    Console.WriteLine("4- Sair");
-                    Console.Write("R: ");
-                    option = int.Parse(Console.ReadLine());
+                Console.Clear();
+                ImprimirLinha();
+                Console.WriteLine("======Estante de livros======");
 
-                } while (option < 0 || option > 4);
+
+                Console.WriteLine("Escolha uma opcao");
+                Console.WriteLine("1- Adicionar Livro");
+                Console.WriteLine("2- Imprimir todos os livros");
+                Console.WriteLine("3- Imprimir um livro especifico");
+                Console.WriteLine("4- Sair");
+                Console.Write("R: ");
+                int option = int.Parse(Console.ReadLine());
+
+                if (option < 1 || option > 4)
+                    return Menu();
 
                 return option;
             }
 
             Livro CriarLivro()
             {
+                Console.Clear();
+                ImprimirLinha();
                 Console.WriteLine("========Inserir Livro========");
 
                 string titulo, editora, isbn;

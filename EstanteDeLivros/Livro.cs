@@ -11,10 +11,6 @@
         private int qntPaginas;
         private int qntAutores;
 
-        public Livro()
-        {
-
-        }
         public Livro(string titulo, string[] autores, DateOnly dataLancamento, string editora, int edicao, string isbn, int qntPaginas)
         {
             this.titulo = titulo;
@@ -35,12 +31,12 @@
                     Console.WriteLine("Nao existe autores cadastrados para esse livro!");
                     break;
                 case 1:
-                    Console.WriteLine("Autor: " + autores[0]);
+                    Console.WriteLine("Autor-----------------: " + autores[0]);
                     break;
                 default:
                     for (int i = 0; i < qntAutores; i++)
                     {
-                        Console.WriteLine($"Autor {i + 1}: {autores[i]}");
+                        Console.WriteLine($"Autor {i+1}--------------: {autores[i]}");
                     }
                     break;
             }
@@ -48,12 +44,12 @@
 
         public void ImprimirLivro()
         {
-            Console.WriteLine($"Titulo: {titulo}");
+            Console.WriteLine($"Titulo---------------: {titulo}");
             ImprimirAutores();
-            Console.WriteLine($"Data de Lancamento: {dataLancamento}");
-            Console.WriteLine($"Editora: {editora}");
-            Console.WriteLine($"Edicao: {edicao}");
-            Console.WriteLine($"ISBN: {isbn}");
+            Console.WriteLine($"Data de Lancamento---: {dataLancamento}");
+            Console.WriteLine($"Editora--------------: {editora}");
+            Console.WriteLine($"Edicao---------------: {edicao}");
+            Console.WriteLine($"ISBN-----------------: {isbn}");
             Console.WriteLine($"Quantidade de paginas: {qntPaginas}");
         }
 
