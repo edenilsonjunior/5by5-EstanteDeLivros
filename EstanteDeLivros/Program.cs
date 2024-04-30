@@ -7,7 +7,7 @@
             Estante estante = new();
             int escolha;
 
-            do
+            while (true)
             {
                 Console.Clear();
                 escolha = Menu();
@@ -43,8 +43,7 @@
                 Console.WriteLine("Digite qualquer tecla para voltar ao menu...");
                 Console.ReadKey();
 
-            } while (escolha != 6);
-
+            }
 
             int Menu()
             {
@@ -100,7 +99,7 @@
 
                 livroEditado.SetEdicao(int.Parse(LerString("Digite o numero da edicao: ")));
                 livroEditado.SetIsbn(LerString("Digite o ISBN do livro: "));
-                
+
                 livroEditado.SetQntPaginas(int.Parse(LerString("Digite o numero de paginas: ")));
             }
 
