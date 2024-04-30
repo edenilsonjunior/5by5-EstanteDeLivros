@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Estante estante = new Estante();
+            Estante estante = new();
             int escolha;
 
             do
@@ -17,7 +17,7 @@
                 switch (escolha)
                 {
                     case 1:
-                        estante.AdicionarLivro(CriarLivro());
+                        estante.AddLivro(CriarLivro());
                         break;
                     case 2:
                         estante.ImprimirLivros();
@@ -68,39 +68,39 @@
 
             Livro CriarLivro()
             {
-                Livro livro = new Livro();
-
                 Console.WriteLine("========Inserir Livro========");
 
-                Console.Write("Digite o titulo: ");
-                livro.DefinirTitulo(Console.ReadLine());
+                string titulo, editora, isbn;
+                DateOnly dataLancamento;
+                string[] autores;
+                int qntAutores, edicao, qntPaginas;
 
-                Console.Write("Digite a quantidades de autores(<=3): ");
-                int qntAutores = int.Parse(Console.ReadLine());
 
+                titulo = LerString("Digite o titulo: ");
+                qntAutores = int.Parse(LerString("Digite a quantidades de autores(<=3): "));
+
+                autores = new string[qntAutores];
                 for (int i = 0; i < qntAutores; i++)
                 {
-                    Console.Write($"Digite o nome do autor {i + 1}: ");
-                    livro.AdicionarAutor(Console.ReadLine());
+                    autores[i] = LerString($"Digite o nome do autor {i + 1}: ");
                 }
 
-                Console.Write("Digite a data de lancamento: ");
-                livro.DefinirDataLancamento(DateOnly.Parse(Console.ReadLine()));
+                dataLancamento = DateOnly.Parse(LerString("Digite a data de lancamento: "));
+                editora = LerString("Digite a editora: ");
+                edicao = int.Parse(LerString("Digite o numero da edicao: "));
 
-                Console.Write("Digite a editora: ");
-                livro.DefinirEditora(Console.ReadLine());
+                isbn = LerString("Digite o ISBN do livro: ");
+                qntPaginas = int.Parse(LerString("Digite o numero de paginas: "));
 
-                Console.Write("Digite o numero da edicao: ");
-                livro.DefinirEdicao(int.Parse(Console.ReadLine()));
-
-                Console.Write("Digite o ISBN do livro: ");
-                livro.DefinirIsbn(Console.ReadLine());
-
-                Console.Write("Digite o numero de paginas: ");
-                livro.DefinirQntPaginas(int.Parse(Console.ReadLine()));
-
-                return livro;
+                return new Livro(titulo, autores, dataLancamento, editora, edicao, isbn, qntPaginas);
             }
+
+            string LerString(string titulo)
+            {
+                Console.Write(titulo);
+                return Console.ReadLine();
+            }
+
 
             void ImprimirLinha()
             {

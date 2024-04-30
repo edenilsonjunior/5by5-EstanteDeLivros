@@ -2,57 +2,29 @@
 {
     public class Livro
     {
-        public string titulo;
-        public string[] autores;
-        public DateOnly dataLancamento;
-        public string editora;
-        public int edicao;
-        public string isbn;
-        public int qntPaginas;
-        public int qntAutores;
+        private string titulo;
+        private string[] autores;
+        private DateOnly dataLancamento;
+        private string editora;
+        private int edicao;
+        private string isbn;
+        private int qntPaginas;
+        private int qntAutores;
 
         public Livro()
         {
-            autores = new string[3];
-            qntAutores = 0;
-        }
 
-        public void DefinirTitulo(string titulo)
+        }
+        public Livro(string titulo, string[] autores, DateOnly dataLancamento, string editora, int edicao, string isbn, int qntPaginas)
         {
             this.titulo = titulo;
-        }
-
-        public void AdicionarAutor(string autor)
-        {
-            if (qntAutores == 3)
-                Console.WriteLine("Maximo de autores atingido!");
-            else
-                autores[qntAutores++] = autor;
-        }
-
-        public void DefinirDataLancamento(DateOnly date)
-        {
-            this.dataLancamento = date;
-        }
-
-        public void DefinirEditora(string editora)
-        {
+            this.autores = autores;
+            this.dataLancamento = dataLancamento;
             this.editora = editora;
-        }
-
-        public void DefinirEdicao(int edicao)
-        {
             this.edicao = edicao;
-        }
-
-        public void DefinirIsbn(string isbn)
-        {
             this.isbn = isbn;
-        }
-
-        public void DefinirQntPaginas(int qntPaginas)
-        {
             this.qntPaginas = qntPaginas;
+            this.qntAutores = autores.Length;
         }
 
         public void ImprimirAutores()
@@ -83,6 +55,76 @@
             Console.WriteLine($"Edicao: {edicao}");
             Console.WriteLine($"ISBN: {isbn}");
             Console.WriteLine($"Quantidade de paginas: {qntPaginas}");
+        }
+
+        public void SetTitulo(string titulo)
+        {
+            this.titulo = titulo;
+        }
+
+        public void SetDataLancamento(DateOnly date)
+        {
+            this.dataLancamento = date;
+        }
+
+        public void SetEditora(string editora)
+        {
+            this.editora = editora;
+        }
+
+        public void SetEdicao(int edicao)
+        {
+            this.edicao = edicao;
+        }
+
+        public void SetIsbn(string isbn)
+        {
+            this.isbn = isbn;
+        }
+
+        public void SetQntPaginas(int qntPaginas)
+        {
+            this.qntPaginas = qntPaginas;
+        }
+
+        public string getTitulo()
+        {
+            return titulo;
+        }
+
+        public string[] GetAutores()
+        {
+            return autores;
+        }
+
+        public DateOnly GetDataLancamento()
+        {
+            return dataLancamento;
+        }
+    
+        public string GetEditora()
+        {
+            return editora;
+        }
+    
+        public int GetEdicao()
+        {
+            return edicao;
+        }
+    
+        public string GetIsbn()
+        {
+            return isbn;
+        }
+    
+        public int GetQntPaginas()
+        {
+            return qntPaginas;
+        }
+        
+        public int GetQntAutores()
+        {
+            return qntAutores;
         }
     }
 }

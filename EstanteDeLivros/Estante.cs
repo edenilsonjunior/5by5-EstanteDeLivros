@@ -11,7 +11,7 @@
             this.qntLivros = 0;
         }
 
-        public void AdicionarLivro(Livro livro)
+        public void AddLivro(Livro livro)
         {
             if (qntLivros == 10)
                 Console.WriteLine("Estante cheia!!!");
